@@ -1,0 +1,13 @@
+<view class='consainer'>
+  <image class='user-avatar' src='/images/avatar.png'></image>
+  <text class='user-name'>Hello 七月</text>
+  <view class='moth-consainer' bindtap="onTap">
+    <text class="moth" >开启小程序之旅</text> <!-- 点击事件 -->
+  </view>
+</view>
+
+<!-- 
+  image为内联块
+  view为块元素
+  text为内联元素
+-->

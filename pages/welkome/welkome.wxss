@@ -1,0 +1,36 @@
+page{
+  background-color: #b3d4db
+}
+.consainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-avatar{
+  width:200rpx;
+  height:200rpx;
+  margin-top: 160rpx;
+}
+
+.user-name{
+  margin-top: 200rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.moth-consainer{
+  margin-top: 100rpx;
+  border: 1rpx solid #405f80;
+  width:200rpx;
+  height:80rpx;
+  border-radius: 3rpx;
+  text-align: center;
+  line-height: 80rpx;
+}
+
+.moth{
+  font-size: 22rpx;
+  font-weight: bold;
+}
+

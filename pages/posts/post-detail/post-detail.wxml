@@ -1,0 +1,20 @@
+<view class="container">
+  <image class="head-image" src="{{isPlayingMusic?postData.music.coverImg:postData.headImgSrc}}"></image>
+  <image class="audio" bindtap= "onMusicTap" src="{{isPlayingMusic?'/images/music/music-stop.png':'/images/music/music-start.png'}}"></image>
+  <view class="author-date">
+    <image class="avatar" src="{{postData.avatar}}"></image>
+    <text class="author">{{postData.author}}</text>
+    <text class="const-text">发表于</text>
+    <text class="date">{{postData.dateTime}}</text>
+  </view>
+  <text class="title">{{postData.title}}</text>
+  <view class="tool">
+    <view class="circle-img">
+      <image wx:if="{{collected}}" bindtap="onColletionTap" src="/images/icon/collection.png"></image> <!-- 收藏后显示的图片 -->
+      <image bindtap="onColletionTap" wx:else src="/images/icon/collection-anti.png"></image> <!-- 没收藏显示的图片 -->
+      <image class="share-img" bindtap="onFenXiang" src="/images/icon/share.png"></image>
+    </view>
+    <view class="horizon"></view>
+  </view>
+  <text class="detail">{{postData.detail}}</text>
+</view>

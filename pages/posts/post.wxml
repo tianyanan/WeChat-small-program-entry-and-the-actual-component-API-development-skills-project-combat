@@ -1,0 +1,23 @@
+<import src="./post-item/post-item-template" /> <!-- 引入模板 -->
+<view>
+  <!-- 轮播图开始 -->
+  <swiper  indicator-dots="{{true}}" indicator-color="#fff" autoplay="true" interval="5000" ><!-- 滑动组件的宽高只能     在swiper组件中设置 -->
+    <swiper-item> <!-- swiper-item设置不了高度，宽高继承swiper100% -->
+      <image src="/images/wx.png"></image> <!-- image标签的宽高默认为320X240 -->
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/vr.png"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="/images/iqiyi.png"></image>
+    </swiper-item>
+  </swiper>
+  <!-- 轮播图结束 -->
+  <!-- 列表开始1 -->
+  <block wx:for="{{post_key}}">    <!-- 展开对象 -->
+    <view catchtap="ontap" data-postId="{{item.postId}}">
+      <template is="postItem" data="{{...item}}" /> <!-- 引入模板的执行顺序： 先在模板文件中，将数据给渲染好，随后将渲染好的html替换掉 "<template is="postItem" data="{{item}}" />" 组件  -->
+    </view>
+  </block>
+  <!-- 列表1结束 -->
+</view>
