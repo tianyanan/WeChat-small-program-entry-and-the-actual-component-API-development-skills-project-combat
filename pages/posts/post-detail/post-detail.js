@@ -110,7 +110,6 @@ Page({
 
   // 音乐播放
   onMusicTap:function (event) {
-    console.log(app);
     var currentPostId = this.data.currentPostId;
     var postData = postsData.postList[currentPostId];
     var isPlayingMusic = this.data.isPlayingMusic;
@@ -129,6 +128,7 @@ Page({
         isPlayingMusic:true
       });
     }
+    console.log(app);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
