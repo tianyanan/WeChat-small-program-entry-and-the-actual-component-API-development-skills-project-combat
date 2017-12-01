@@ -1,4 +1,6 @@
 var postsData = require('../../../data/posts-data.js');
+var app = getApp();
+
 Page({
   /**
    * 页面的初始数据
@@ -36,21 +38,30 @@ Page({
     }
 
 
+    if (app.globalData.gIsPlayingMusic[postId]) {
+      this.setData({
+        isPlayingMusic: true
+      });
+    }
+
+
     // 监听音乐的播放与暂停
     var _this = this;
-    wx.onBackgroundAudioPlay(function () {
+    wx.onBackgroundAudioPlay(function () { // 播放音乐设置为true
       _this.setData({
         isPlayingMusic: true
-      })
+      });
+      app.globalData.gIsPlayingMusic[postId] = true;
     });
-
-    wx.onBackgroundAudioPause(function () {
+    
+    wx.onBackgroundAudioPause(function () { //暂停音乐设置为false
       _this.setData({
         isPlayingMusic: false
-      })
+      });
+      app.globalData.gIsPlayingMusic[postId] = false;
     });
   },
-
+  
   onColletionTap:function (event) {
     // 缓存api的应用
     var postsCollected = wx.getStorageSync('posts_collected'); // 获取到一个对象;
@@ -99,6 +110,7 @@ Page({
 
   // 音乐播放
   onMusicTap:function (event) {
+    console.log(app);
     var currentPostId = this.data.currentPostId;
     var postData = postsData.postList[currentPostId];
     var isPlayingMusic = this.data.isPlayingMusic;
@@ -130,7 +142,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
