@@ -38,7 +38,7 @@ Page({
     }
 
 
-    if (app.globalData.gIsPlayingMusic) {
+    if (app.globalData.gIsPlayingMusic && app.globalData.gCurrentMusicPostId === postId) {
       this.setData({
         isPlayingMusic: true
       });
@@ -51,14 +51,16 @@ Page({
       _this.setData({
         isPlayingMusic: true
       });
-      app.globalData.gIsPlayingMusic = true;
+      app.globalData.gIsPlayingMusic = true; // 记录音乐在播放
+      app.globalData.gCurrentMusicPostId = postId; // 记录哪条文章的音乐在播放
     });
     
     wx.onBackgroundAudioPause(function () { //暂停音乐设置为false
       _this.setData({
         isPlayingMusic: false
       });
-      app.globalData.gIsPlayingMusic = false;
+      app.globalData.gIsPlayingMusic = false; // 记录音乐暂停
+      app.globalData.gCurrentMusicPostId = postId; //  记录哪条文章的音乐在暂停
     });
   },
   
