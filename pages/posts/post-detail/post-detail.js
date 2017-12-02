@@ -38,7 +38,7 @@ Page({
     }
 
 
-    if (app.globalData.gIsPlayingMusic[postId]) {
+    if (app.globalData.gIsPlayingMusic) {
       this.setData({
         isPlayingMusic: true
       });
@@ -51,14 +51,14 @@ Page({
       _this.setData({
         isPlayingMusic: true
       });
-      app.globalData.gIsPlayingMusic[postId] = true;
+      app.globalData.gIsPlayingMusic = true;
     });
     
     wx.onBackgroundAudioPause(function () { //暂停音乐设置为false
       _this.setData({
         isPlayingMusic: false
       });
-      app.globalData.gIsPlayingMusic[postId] = false;
+      app.globalData.gIsPlayingMusic = false;
     });
   },
   

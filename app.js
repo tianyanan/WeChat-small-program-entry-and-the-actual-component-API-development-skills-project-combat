@@ -1,7 +1,8 @@
 //app.js
 App({
   globalData:{
-    gIsPlayingMusic:{}
+    gIsPlayingMusic: false,
+    gCurrentMusicPostId: null
   }
 });
 
